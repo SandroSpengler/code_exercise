@@ -1,6 +1,6 @@
 import IEigenschaft from "./eigenschaft";
 
-export default interface IAuftrag {
+export default interface IAppKonfiguration {
 	id: number;
 	tenantId?: number;
 	bezeichnung: string;

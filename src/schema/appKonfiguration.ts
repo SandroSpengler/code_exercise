@@ -1,8 +1,8 @@
-import mongoose, { Types } from "mongoose";
-import IAuftrag from "../interface/auftrag";
+import mongoose from "mongoose";
+import IAppKonfiguration from "../interface/appKonfiguration";
 import { EigenschaftSchema } from "./eigenschaft";
 
-const AuftragSchema = new mongoose.Schema({
+const AppKonfiguration = new mongoose.Schema({
 	id: {
 		type: Number,
 		required: true,
@@ -24,4 +24,4 @@ const AuftragSchema = new mongoose.Schema({
 	},
 });
 
-export default mongoose.model<IAuftrag>("AuftragSchema", AuftragSchema);
+export default mongoose.model<IAppKonfiguration>("AppKonfigurationSchema", AppKonfiguration);

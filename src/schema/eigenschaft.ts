@@ -12,8 +12,15 @@ export const EigenschaftSchema = new mongoose.Schema({
 	},
 	datentyp: {
 		type: String,
-		content: Object,
+		required: true,
+		enum: {
+			values: ["Kunde", "Käufer", "Konsument"],
+		},
 	},
+	// datentyp: {
+	// 	type: Object,
+	// 	content: Object,
+	// },
 });
 
 export default mongoose.model<IEigenschaft>("EigenschaftSchema", EigenschaftSchema);

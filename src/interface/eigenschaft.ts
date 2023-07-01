@@ -1,5 +1,7 @@
+import { datentyp } from "../typ/datentyp";
+
 export default interface IEigenschaft {
 	id: number;
-	beschreibung: number;
-	datentyp: Object;
+	beschreibung: string;
+	datentyp: datentyp;
 }

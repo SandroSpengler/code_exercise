@@ -1,13 +1,24 @@
 import express, { Request, Response } from "express";
 import IAuftrag from "../interface/auftrag";
-import { createAuftrag } from "../repository/auftrag";
+import { createAuftrag, findAuftrag } from "../repository/auftrag";
 import mongoose from "mongoose";
 
 const router = express.Router();
 
-router.get("/auftrag", (req: Request, res: Response) => {
-	return res.json([{ auftragsId: "10" }, { auftragsId: "20" }]);
+router.get("/auftrag", async (req: Request, res: Response) => {
+	const auftraegeInDB = await findAuftrag({});
+
+	if (auftraegeInDB === null) {
+		return res.status(404).send();
+	}
+
+	if (auftraegeInDB.length === 0) {
+		return res.status(404).json(auftraegeInDB);
+	}
+
+	return res.json(auftraegeInDB);
 });
+
 router.post("/auftrag", async (req: Request, res: Response) => {
 	if (Object.keys(req.body).length === 0) {
 		return res.status(400).send();
