@@ -1,13 +1,18 @@
-import express, { Application, urlencoded } from "express";
 import { json } from "body-parser";
-import { auftragRouter } from "./route/autrag";
-import { connectToMongoDB } from "./services/mongodb";
+import cors from "cors";
 import "dotenv/config";
+import express from "express";
+
+import { connectToMongoDB } from "./services/mongodb";
+
 import { appKonfigurationRouter } from "./route/appKonfiguration";
+import { auftragRouter } from "./route/autrag";
+import { configureCorsOptions } from "./services/cors";
 
 const app = express();
 const port = 3000;
 
+app.use(cors(configureCorsOptions()));
 app.use(json());
 
 app.use("/api", auftragRouter);
