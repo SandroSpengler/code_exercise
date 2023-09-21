@@ -1,5 +1,5 @@
 import { FilterQuery } from "mongoose";
-import IAuftrag from "../interface/auftrag";
+import IAuftrag from "../interface/IAuftrag";
 import AuftragSchema from "../schema/auftrag";
 
 export const findAuftrag = async (filter: FilterQuery<IAuftrag>): Promise<IAuftrag[] | null> => {

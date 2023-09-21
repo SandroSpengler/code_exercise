@@ -1,13 +1,13 @@
-import app from "../src/app";
+import IAuftrag from "src/interface/IAuftrag";
+import IEigenschaft from "src/interface/IEigenschaft";
+import { connectToMemoryDB, clearMemoryDB, closeMemoryDB } from "src/services/MongodbInMemory";
+import app from "../../src/app";
 
 import supertest from "supertest";
 
-import { clearMemoryDB, closeMemoryDB, connectToMemoryDB } from "../src/services/mongodbInMemory";
-import IAuftrag from "../src/interface/auftrag";
-import IEigenschaft from "../src/interface/eigenschaft";
-
 const request = supertest(app);
-describe("Test request with mongoose", () => {
+
+describe("Test request with in Memory DB", () => {
 	beforeAll(async () => {
 		await connectToMemoryDB();
 	});

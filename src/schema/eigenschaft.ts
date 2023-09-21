@@ -1,5 +1,5 @@
 import mongoose, { Types } from "mongoose";
-import IEigenschaft from "../interface/eigenschaft";
+import IEigenschaft from "../interface/IEigenschaft";
 
 export const EigenschaftSchema = new mongoose.Schema({
 	id: {

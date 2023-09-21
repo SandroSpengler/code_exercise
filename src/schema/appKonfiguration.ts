@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import IAppKonfiguration from "../interface/appKonfiguration";
+import IAppKonfiguration from "../interface/IAppKonfiguration";
 import { EigenschaftSchema } from "./eigenschaft";
 
 const AppKonfiguration = new mongoose.Schema({

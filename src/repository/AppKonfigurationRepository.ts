@@ -1,7 +1,7 @@
 import { FilterQuery } from "mongoose";
 
 import AppKonfiguration from "../schema/appKonfiguration";
-import IAppKonfiguration from "../interface/appKonfiguration";
+import IAppKonfiguration from "../interface/IAppKonfiguration";
 
 export const findAppKonfiguration = async (
 	filter: FilterQuery<IAppKonfiguration>,

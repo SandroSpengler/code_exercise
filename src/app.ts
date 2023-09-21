@@ -3,25 +3,24 @@ import cors from "cors";
 import "dotenv/config";
 import express from "express";
 
-import { connectToMongoDB } from "./services/mongodb";
+import { AuftragRouter } from "./controller/Autrag";
+import { configureCorsOptions } from "./services/Cors";
+import { connectToMongoDB } from "./services/Mongodb";
+import { AppKonfigurationRouter } from "./controller/AppKonfiguration";
 
-import { appKonfigurationRouter } from "./route/appKonfiguration";
-import { auftragRouter } from "./route/autrag";
-import { configureCorsOptions } from "./services/cors";
-
-const app = express();
+const App = express();
 const port = 3000;
 
-app.use(cors(configureCorsOptions()));
-app.use(json());
+App.use(cors(configureCorsOptions()));
+App.use(json());
 
-app.use("/api", auftragRouter);
-app.use("/api", appKonfigurationRouter);
+App.use("/api", AuftragRouter);
+App.use("/api", AppKonfigurationRouter);
 
 if (process.env.NODE_ENV !== "test") {
 	connectToMongoDB(process.env.CONNECTION_STRING);
 }
-const server = app.listen(port, () => {
+const server = App.listen(port, () => {
 	if (process.env.NODE_ENV !== "test") {
 		console.log(`server running on ${port}`);
 	}

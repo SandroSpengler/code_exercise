@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
-import IAuftrag from "../interface/auftrag";
-import { createAuftrag, findAuftrag } from "../repository/auftrag";
 import mongoose from "mongoose";
+import { createAuftrag, findAuftrag } from "../repository/AuftragRespository";
 
 const router = express.Router();
 
@@ -38,4 +37,4 @@ router.post("/auftrag", async (req: Request, res: Response) => {
 	return res.status(201).send();
 });
 
-export { router as auftragRouter };
+export { router as AuftragRouter };

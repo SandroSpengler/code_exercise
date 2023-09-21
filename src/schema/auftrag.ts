@@ -1,5 +1,5 @@
 import mongoose, { Types } from "mongoose";
-import IAuftrag from "../interface/auftrag";
+import IAuftrag from "../interface/IAuftrag";
 import { EigenschaftSchema } from "./eigenschaft";
 
 const AuftragSchema = new mongoose.Schema({
